@@ -54,6 +54,9 @@ class PlayerDrain extends Command
             return 1;
         }
 
+        sort($teamA);
+        sort($teamB);
+
         $result = '';
         for($i=0; $i<count($teamA); $i++){
             if($teamA[$i] > $teamB[$i]){
