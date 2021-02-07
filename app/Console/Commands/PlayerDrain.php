@@ -67,7 +67,6 @@ class PlayerDrain extends Command
 
                 if($teamA[$j] > $teamB[$i]){
                     if(!in_array($teamA[$j], $teamARearranged)){
-                        //$teamARearranged[$teamB[$i]] = $teamA[$j];
                         $teamARearranged[$i] = $teamA[$j];
                         break;
                     }
