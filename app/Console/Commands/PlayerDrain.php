@@ -30,6 +30,7 @@ class PlayerDrain extends Command
         parent::__construct();
     }
 
+
     /**
      * Execute the console command.
      *
@@ -43,6 +44,7 @@ class PlayerDrain extends Command
         $teamA = (explode(',',$a));
         $teamB = (explode(',',$b));
 
+
         if((count($teamA) < 5) || (count($teamA) > 5)){
             $this->info("Team A must have 5 players");
         }
@@ -54,12 +56,32 @@ class PlayerDrain extends Command
             return 1;
         }
 
+
+        $teamARearranged = array();
         sort($teamA);
-        sort($teamB);
+
+        start:
+        for($i=0; $i<count($teamB); $i++){
+
+            for($j=0; $j<count($teamA); $j++){
+
+                if($teamA[$j] > $teamB[$i]){
+                    if(!in_array($teamA[$j], $teamARearranged)){
+                        //$teamARearranged[$teamB[$i]] = $teamA[$j];
+                        $teamARearranged[$i] = $teamA[$j];
+                        break;
+                    }
+
+                }else{
+                    $teamARearranged[$i] = $teamA[$j];
+                }
+
+            }
+        }
 
         $result = '';
-        for($i=0; $i<count($teamA); $i++){
-            if($teamA[$i] > $teamB[$i]){
+        for($i=0; $i<5; $i++){
+            if($teamARearranged[$i] > $teamB[$i]){
                 $result = "Win";
                 continue;
             }
@@ -67,7 +89,6 @@ class PlayerDrain extends Command
                 $result = "Loose";
                 break;
             }
-
         }
 
         $this->info($result);

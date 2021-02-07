@@ -53,8 +53,8 @@ class BasicTest extends TestCase
     public function testTeamAWinDrain()
     {
         $response = $this->artisan('player:start')
-        ->expectsQuestion('Enter A Teams players', '11,22,33,44,55')
-        ->expectsQuestion('Enter B Teams players', '10,20,30,40,50')
+        ->expectsQuestion('Enter A Teams players', '35, 100, 20, 50, 40')
+        ->expectsQuestion('Enter B Teams players', '35, 10, 30, 20, 90')
         ->expectsOutput('Win');
     }
      /**
@@ -65,8 +65,8 @@ class BasicTest extends TestCase
     public function testTeamALooseDrain()
     {
         $response = $this->artisan('player:start')
-        ->expectsQuestion('Enter A Teams players', '10,20,30,40,50')
-        ->expectsQuestion('Enter B Teams players', '11,22,33,44,55')
+        ->expectsQuestion('Enter A Teams players', '35, 100, 20, 50, 40')
+        ->expectsQuestion('Enter B Teams players', '35, 10, 30, 20, 900')
         ->expectsOutput('Loose');
     }
 
