@@ -38,7 +38,7 @@ class BasicTest extends TestCase
             ->expectsOutput('Team B must have 5 players');
     }
     /**
-     * Team A win
+     * Team A won
      *
      * @return void
      */
@@ -50,7 +50,7 @@ class BasicTest extends TestCase
             ->expectsOutput('Win');
     }
     /**
-     * Team A Loose
+     * Team A Lost
      *
      * @return void
      */

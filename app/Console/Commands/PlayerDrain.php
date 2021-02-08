@@ -60,7 +60,6 @@ class PlayerDrain extends Command
         $teamARearranged = array();
         sort($teamA);
 
-        start:
         for ($i = 0; $i < count($teamB); $i++) {
 
             for ($j = 0; $j < count($teamA); $j++) {
