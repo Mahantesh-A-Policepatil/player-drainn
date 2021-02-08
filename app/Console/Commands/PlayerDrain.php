@@ -41,18 +41,18 @@ class PlayerDrain extends Command
         $a = $this->ask('Enter A Teams players');
         $b = $this->ask('Enter B Teams players');
 
-        $teamA = (explode(',',$a));
-        $teamB = (explode(',',$b));
+        $teamA = (explode(',', $a));
+        $teamB = (explode(',', $b));
 
 
-        if((count($teamA) < 5) || (count($teamA) > 5)){
+        if ((count($teamA) < 5) || (count($teamA) > 5)) {
             $this->info("Team A must have 5 players");
         }
 
-        if((count($teamB) < 5) || (count($teamB) > 5)){
+        if ((count($teamB) < 5) || (count($teamB) > 5)) {
             $this->info("Team B must have 5 players");
         }
-        if( (count($teamA) < 5) || (count($teamA) > 5) || (count($teamB) < 5) || (count($teamB) > 5) ){
+        if ((count($teamA) < 5) || (count($teamA) > 5) || (count($teamB) < 5) || (count($teamB) > 5)) {
             return 1;
         }
 
@@ -61,30 +61,27 @@ class PlayerDrain extends Command
         sort($teamA);
 
         start:
-        for($i=0; $i<count($teamB); $i++){
+        for ($i = 0; $i < count($teamB); $i++) {
 
-            for($j=0; $j<count($teamA); $j++){
+            for ($j = 0; $j < count($teamA); $j++) {
 
-                if($teamA[$j] > $teamB[$i]){
-                    if(!in_array($teamA[$j], $teamARearranged)){
+                if ($teamA[$j] > $teamB[$i]) {
+                    if (!in_array($teamA[$j], $teamARearranged)) {
                         $teamARearranged[$i] = $teamA[$j];
                         break;
                     }
-
-                }else{
+                } else {
                     $teamARearranged[$i] = $teamA[$j];
                 }
-
             }
         }
 
         $result = '';
-        for($i=0; $i<5; $i++){
-            if($teamARearranged[$i] > $teamB[$i]){
+        for ($i = 0; $i < 5; $i++) {
+            if ($teamARearranged[$i] > $teamB[$i]) {
                 $result = "Win";
                 continue;
-            }
-            else{
+            } else {
                 $result = "Loose";
                 break;
             }
@@ -92,5 +89,4 @@ class PlayerDrain extends Command
 
         $this->info($result);
     }
-
 }
