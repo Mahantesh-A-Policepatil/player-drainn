@@ -10,8 +10,7 @@
     `php artisan player:start` \
 #To PHPUnit test artisan command use the following command for linux \
     `vendor/bin/phpunit` \
-#To PHPUnit test artisan command use the following command for windows   
-#Please note use backward slashes \ 
+#To PHPUnit test artisan command use the following command for windows \    
     `vendor\bin\phpunit` \
 #Or Use following command \
     `php artisan test`
