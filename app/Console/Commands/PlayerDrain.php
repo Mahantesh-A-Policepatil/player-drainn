@@ -38,8 +38,8 @@ class PlayerDrain extends Command
      */
     public function handle()
     {
-        $a = $this->ask('Enter A Teams players');
-        $b = $this->ask('Enter B Teams players');
+        $a = $this->ask('Enter A Teams players, Enter comma seperated integers');
+        $b = $this->ask('Enter B Teams players, Enter comma seperated integers');
 
         $teamA = (explode(',', $a));
         $teamB = (explode(',', $b));
